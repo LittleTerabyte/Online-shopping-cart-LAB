@@ -1,4 +1,3 @@
-
 # Classes 
 class ItemToPurchase:
     def __init__(self, item_name = "none", item_price = 0, item_quantity = 0, item_description = "none"):
@@ -20,12 +19,9 @@ class ShoppingCart:
         self.cart_items = []
     
     def add_item(self, item):
-        # Adds an item to cart_items list. Has parameter ItemToPurchase. Does not return anything.
-        self.item = item
         self.cart_items.append(item)
         
     def remove_item(self, item_name):
-        # Removes item from cart_items list. Has a string (an item's name) parameter. Does not return anything.
         found = False
         for item in self.cart_items:
             if item.item_name == item_name:
@@ -36,7 +32,6 @@ class ShoppingCart:
             print("Item not found in cart. Nothing removed.")  
     
     def modify_item(self, item):
-        # Modifies an item's description, price, and/or quantity. Has parameter ItemToPurchase. Does not return anything.
         found = False
         for i in range(len(self.cart_items)):
             if self.cart_items[i].item_name == item.item_name:
@@ -48,6 +43,9 @@ class ShoppingCart:
                 if item.item_quantity != 0:
                     self.cart_items[i].item_quantity = item.item_quantity
                 break
+        if not found:
+            print("Item not found in cart. Nothing modified.")
+    
             
     def get_num_items_in_cart(self):
          #Returns quantity of all items in cart. Has no parameters. 
